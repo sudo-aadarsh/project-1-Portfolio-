@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+:root {
+  font-family: 'Geist', 'Inter', system-ui, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: #ccd6f6;
+  background-color: #020617;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  /* EXACT REFERENCE BACKGROUND: Layered Gradients */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), #020617),
+              linear-gradient(
+                to right,
+                #002C3B,
+                #00506A,
+                #007AA0,
+                #00A7DA,
+                #6BD2FF,
+                #E0F5FF
+              );
+  background-attachment: fixed;
+  overflow-x: hidden;
+  font-size: 13px;
+  min-height: 100vh;
+}
+
+@theme {
+  --color-neon-cyan: #00f0ff; /* Exact Reference Neon Cyan */
+  --color-dark-bg: #020617;
+  --color-dark-card: rgba(255, 255, 255, 0.05); /* Exact Reference Glassmorphism */
+  --color-border-cyan: rgba(0, 240, 255, 0.3);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00f0ff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.section-card {
+  @apply bg-dark-card backdrop-blur-[20px] border border-white/5 rounded-[48px] p-8 md:p-20 shadow-2xl;
+}
+
+h1, h2, h3 {
+  color: #f8fafc;
+  letter-spacing: -0.02em;
+}
+
+p {
+  color: #94a3b8;
+  line-height: 1.6;
+}
