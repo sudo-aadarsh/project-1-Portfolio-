@@ -16,66 +16,76 @@ const PROJECT_CONFIG = {
   'somethingforyou': { id: '1513201099681-44467d01e55e', title: 'SomethingForYou' }
 };
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project, index }) => {
   const [imageError, setImageError] = useState(false);
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.98 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.98 }}
-      className="bg-dark-card/40 rounded-lg overflow-hidden border border-white/5 hover:border-neon-cyan/30 transition-all group flex flex-col h-full shadow-md"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+      viewport={{ once: true }}
+      whileHover={{ y: -8 }}
+      className="bg-dark-card/40 rounded-2xl overflow-hidden border border-white/5 hover:border-neon-cyan/30 transition-all group flex flex-col h-full shadow-lg"
     >
-      <div className="h-32 overflow-hidden relative bg-dark-bg/80">
+      <div className="h-40 overflow-hidden relative bg-dark-bg/80">
         {project.image && !imageError ? (
           <img 
             src={project.image} 
             alt={project.title} 
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
             onError={() => setImageError(true)}
           />
         ) : (
-          <div className="w-full h-full flex flex-col items-center justify-center p-4 text-center bg-gradient-to-br from-dark-card to-dark-bg relative overflow-hidden group-hover:scale-105 transition-transform duration-500">
+          <div className="w-full h-full flex flex-col items-center justify-center p-4 text-center bg-gradient-to-br from-dark-card to-dark-bg relative overflow-hidden group-hover:scale-110 transition-transform duration-700">
             <div className="absolute -right-4 -top-4 opacity-[0.03] rotate-12">
-               <FaGithub size={100} />
+               <FaGithub size={120} />
             </div>
             <div className="relative z-10 flex flex-col items-center">
-              <FaGithub size={24} className="text-neon-cyan/80 mb-2" />
-              <h4 className="text-[11px] font-bold text-white/90 line-clamp-1">{project.title}</h4>
-              <p className="text-[9px] text-gray-400 line-clamp-1 mt-1">{project.description}</p>
+              <FaGithub size={32} className="text-neon-cyan/50 mb-3" />
+              <h4 className="text-xs font-bold text-white/80 line-clamp-1 px-4">{project.title}</h4>
+              <p className="text-[10px] text-gray-500 line-clamp-1 mt-1">{project.description}</p>
             </div>
-            <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-neon-cyan/20 to-transparent"></div>
+            <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-neon-cyan/20 to-transparent"></div>
           </div>
         )}
-        <div className="absolute inset-0 bg-dark-bg/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3 z-20">
-          <a href={project.github} target="_blank" rel="noopener noreferrer" className="p-1.5 bg-white rounded-full text-black hover:bg-neon-cyan transition-colors">
-            <FaGithub size={14} />
-          </a>
-          <a href={project.demo} target="_blank" rel="noopener noreferrer" className="p-1.5 bg-white rounded-full text-black hover:bg-neon-cyan transition-colors">
-            <FaExternalLinkAlt size={14} />
-          </a>
+        <div className="absolute inset-0 bg-dark-bg/60 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-4 z-20">
+          <motion.a 
+            whileHover={{ scale: 1.1, y: -2 }}
+            whileTap={{ scale: 0.9 }}
+            href={project.github} target="_blank" rel="noopener noreferrer" className="p-2.5 bg-white rounded-full text-black hover:bg-neon-cyan transition-colors"
+          >
+            <FaGithub size={18} />
+          </motion.a>
+          <motion.a 
+            whileHover={{ scale: 1.1, y: -2 }}
+            whileTap={{ scale: 0.9 }}
+            href={project.demo} target="_blank" rel="noopener noreferrer" className="p-2.5 bg-white rounded-full text-black hover:bg-neon-cyan transition-colors"
+          >
+            <FaExternalLinkAlt size={18} />
+          </motion.a>
         </div>
       </div>
 
-      <div className="p-4 flex flex-col flex-grow">
-        <h3 className="text-sm font-bold mb-1 group-hover:text-neon-cyan transition-colors line-clamp-1">{project.title}</h3>
-        <p className="text-[10px] opacity-60 mb-3 line-clamp-2 leading-relaxed h-7">{project.description}</p>
+      <div className="p-6 flex flex-col flex-grow">
+        <h3 className="text-lg font-bold mb-2 group-hover:text-neon-cyan transition-colors line-clamp-1 tracking-tight">{project.title}</h3>
+        <p className="text-xs opacity-60 mb-5 line-clamp-2 leading-relaxed h-8">{project.description}</p>
         
         <div className="mt-auto">
-          <div className="flex flex-wrap gap-1 mb-3">
+          <div className="flex flex-wrap gap-2 mb-5">
             {project.tags.slice(0, 3).map((tag, i) => (
-              <span key={i} className="px-1.5 py-0.5 bg-neon-cyan/5 rounded text-[9px] text-neon-cyan border border-neon-cyan/10">
+              <span key={i} className="px-2.5 py-0.5 bg-neon-cyan/5 rounded-full text-[10px] text-neon-cyan border border-neon-cyan/10 font-bold uppercase tracking-tighter">
                 {tag}
               </span>
             ))}
           </div>
 
-          <div className="flex justify-between items-center pt-3 border-t border-white/5">
-            <a href={project.github} target="_blank" rel="noopener noreferrer" className="opacity-50 hover:opacity-100 transition-opacity flex items-center gap-1.5 text-[9px]">
-              <FaGithub size={12} /> Code
+          <div className="flex justify-between items-center pt-4 border-t border-white/5">
+            <a href={project.github} target="_blank" rel="noopener noreferrer" className="opacity-50 hover:opacity-100 transition-all flex items-center gap-2 text-xs font-bold uppercase tracking-widest">
+              <FaGithub size={14} /> Code
             </a>
-            <a href={project.demo} target="_blank" rel="noopener noreferrer" className="opacity-50 hover:opacity-100 transition-opacity flex items-center gap-1.5 text-[9px]">
-              <FaExternalLinkAlt size={12} /> View
+            <a href={project.demo} target="_blank" rel="noopener noreferrer" className="opacity-50 hover:opacity-100 transition-all flex items-center gap-2 text-xs font-bold uppercase tracking-widest">
+              <FaExternalLinkAlt size={14} /> View
             </a>
           </div>
         </div>
@@ -99,7 +109,6 @@ const Projects = () => {
         const formattedProjects = filteredRepos.map(repo => {
           const repoNameLower = repo.name.toLowerCase();
           const config = PROJECT_CONFIG[repoNameLower] || {};
-          
           const imageId = config.id;
           const imageUrl = imageId ? `https://images.unsplash.com/photo-${imageId}?auto=format&fit=crop&q=80&w=800` : null;
 
@@ -131,51 +140,59 @@ const Projects = () => {
   };
 
   return (
-    <section id="project" className="py-12">
+    <section id="project" className="py-10">
       <motion.div
-        initial={{ opacity: 0, y: 15 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="text-center mb-8"
+        className="text-center mb-16"
       >
-        <h2 className="text-2xl md:text-3xl font-bold mb-2">My Projects</h2>
-        <div className="w-12 h-1 bg-neon-cyan mx-auto rounded-full mb-4"></div>
+        <h2 className="text-3xl md:text-5xl font-bold mb-4">My Projects</h2>
+        <div className="w-16 h-1 bg-neon-cyan mx-auto rounded-full"></div>
       </motion.div>
 
       {loading ? (
-        <div className="flex justify-center py-10">
-          <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-neon-cyan"></div>
+        <div className="flex justify-center py-20">
+          <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-neon-cyan"></div>
         </div>
       ) : (
-        <>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <AnimatePresence mode='popLayout'>
-              {projects.slice(0, visibleCount).map((project) => (
-                <ProjectCard key={project.originalName} project={project} />
+              {projects.slice(0, visibleCount).map((project, index) => (
+                <ProjectCard key={project.originalName} project={project} index={index % 3} />
               ))}
             </AnimatePresence>
           </div>
 
-          <div className="mt-8 text-center flex justify-center gap-3">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            className="mt-16 text-center flex justify-center gap-4"
+          >
             {visibleCount < projects.length && (
-              <button 
+              <motion.button 
+                whileHover={{ scale: 1.05, y: -2, backgroundColor: "rgba(0, 240, 255, 0.15)" }}
+                whileTap={{ scale: 0.95 }}
                 onClick={showMore}
-                className="px-6 py-2 rounded-md border border-neon-cyan text-neon-cyan hover:bg-neon-cyan hover:text-black transition-all text-[11px] font-bold"
+                className="px-8 py-3.5 rounded-xl border border-neon-cyan/40 bg-neon-cyan/5 backdrop-blur-md text-neon-cyan hover:border-neon-cyan transition-all text-xs font-black tracking-widest uppercase shadow-[0_0_20px_rgba(0,240,255,0.1)]"
               >
-                More Projects
-              </button>
+                Explore More
+              </motion.button>
             )}
             {visibleCount > 6 && (
-              <button 
+              <motion.button 
+                whileHover={{ scale: 1.05, y: -2, backgroundColor: "rgba(255,255,255,0.1)" }}
+                whileTap={{ scale: 0.95 }}
                 onClick={showLess}
-                className="px-6 py-2 rounded-md border border-white/10 text-white/50 hover:bg-white/5 transition-all text-[11px] font-bold"
+                className="px-8 py-3.5 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md text-white/60 hover:text-white transition-all text-xs font-black tracking-widest uppercase"
               >
                 Show Less
-              </button>
+              </motion.button>
             )}
-          </div>
-        </>
+          </motion.div>
+        </div>
       )}
     </section>
   );

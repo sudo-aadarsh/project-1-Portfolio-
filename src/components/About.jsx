@@ -7,76 +7,99 @@ const About = () => {
     { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
     { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
     { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
-    { name: 'Tailwind', icon: 'https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg' },
+    { name: 'C', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg' },
     { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
     { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
-    { name: 'Blockchain', icon: 'https://cdn-icons-png.flaticon.com/512/2091/2091665.png' },
-    { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
-    { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
-    { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-    { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
-    { name: 'Tailwind', icon: 'https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg' },
-    { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
-    { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
-    { name: 'Blockchain', icon: 'https://cdn-icons-png.flaticon.com/512/2091/2091665.png' },
+    { name: 'Linux', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg' },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+    },
+  };
+
   return (
-    <section id="about" className="section-card !p-10 md:!p-16 text-center">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="mb-12 flex flex-col items-center"
-      >
-        <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">About Me</h2>
-        <div className="w-16 h-1 bg-neon-cyan rounded-full"></div>
-      </motion.div>
-
-      <div className="max-w-4xl mx-auto flex flex-col items-center">
+    <section id="about" className="py-10">
+      <div className="max-w-6xl mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="w-full"
+          className="text-center mb-16"
         >
-          <p className="text-sm md:text-base text-slate-400 leading-relaxed mb-12 max-w-2xl mx-auto">
-            I'm <span className="text-white font-bold">Aadarsh Jha</span>, a Computer Science student passionate about building modern, high-performance web applications. 
-            I enjoy working with the latest technologies and continuously improving my skills.
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 w-full max-w-2xl mx-auto">
-            <div className="bg-white/5 backdrop-blur-[20px] p-8 rounded-[32px] border border-white/5 hover:border-neon-cyan/50 hover:shadow-[0_0_25px_rgba(0,240,255,0.15)] transition-all group">
-              <h3 className="text-3xl font-extrabold text-neon-cyan mb-2">20<span className="text-white">+</span></h3>
-              <p className="text-slate-400 text-xs font-medium uppercase tracking-widest">Projects Completed</p>
-            </div>
-            <div className="bg-white/5 backdrop-blur-[20px] p-8 rounded-[32px] border border-white/5 hover:border-neon-cyan/50 hover:shadow-[0_0_25px_rgba(0,240,255,0.15)] transition-all group">
-              <h3 className="text-3xl font-extrabold text-neon-cyan mb-2">2<span className="text-white">+</span></h3>
-              <p className="text-slate-400 text-xs font-medium uppercase tracking-widest">Years of Experience</p>
-            </div>
-          </div>
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">About Me</h2>
+          <div className="w-16 h-1 bg-neon-cyan mx-auto rounded-full"></div>
         </motion.div>
 
-        <div className="relative mt-8 w-full overflow-hidden py-6">
-          <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#0d1f27] to-transparent z-10"></div>
-          <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#0d1f27] to-transparent z-10"></div>
-          
-          <motion.div 
-            className="flex gap-16 items-center"
-            animate={{ x: [0, -1000] }}
-            transition={{ x: { repeat: Infinity, repeatType: "loop", duration: 35, ease: "linear" }}}
-            style={{ width: "fit-content" }}
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-base md:text-lg text-slate-400 leading-relaxed mb-8">
+              I'm <span className="text-white font-bold">Aadarsh Jha</span>, a dedicated developer with a sharp focus on modern web architectures. My journey is fueled by a passion for solving complex problems through elegant code and robust system design.
+            </p>
+            <p className="text-base md:text-lg text-slate-400 leading-relaxed mb-10">
+              I believe in building applications that are not just functional, but also provide a seamless and high-performance user experience.
+            </p>
+
+            <div className="grid grid-cols-2 gap-6">
+              {[
+                { count: '20+', label: 'Projects Done' },
+                { count: '2+', label: 'Years Exp.' },
+              ].map((stat, i) => (
+                <motion.div
+                  key={i}
+                  whileHover={{ y: -5, borderColor: 'rgba(0, 240, 255, 0.3)' }}
+                  className="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/5 transition-colors"
+                >
+                  <h3 className="text-2xl md:text-3xl font-black text-neon-cyan mb-1">{stat.count}</h3>
+                  <p className="text-gray-500 text-[10px] font-bold uppercase tracking-widest">{stat.label}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid grid-cols-4 gap-4"
           >
             {skills.map((skill, index) => (
-              <div key={index} className="flex-shrink-0 w-12 h-12 flex items-center justify-center p-1 group transition-all duration-500">
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                className="aspect-square bg-white/5 rounded-2xl border border-white/5 flex flex-col items-center justify-center p-4 group hover:bg-neon-cyan/10 transition-colors"
+              >
                 <img 
                   src={skill.icon} 
                   alt={skill.name} 
-                  className="w-full h-full object-contain group-hover:scale-110 transition-transform" 
+                  className="w-10 h-10 md:w-12 md:h-12 object-contain group-hover:brightness-110 transition-all" 
                 />
-              </div>
+                <span className="text-[8px] md:text-[10px] text-gray-500 group-hover:text-neon-cyan mt-2 font-bold uppercase tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity">
+                  {skill.name}
+                </span>
+              </motion.div>
             ))}
           </motion.div>
         </div>

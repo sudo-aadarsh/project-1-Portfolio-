@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="min-h-screen selection:bg-neon-cyan/30 selection:text-neon-cyan">
       <Navbar />
-      <main className="container mx-auto px-4 md:px-6 space-y-12 md:space-y-24 py-12 md:py-24">
+      <main className="container mx-auto px-4 md:px-6 space-y-6 md:space-y-12 py-8 md:py-16">
         <Hero />
         <About />
         <Projects />
