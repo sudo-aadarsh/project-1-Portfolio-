@@ -17,13 +17,14 @@ const Contact = () => {
     const formData = new FormData(form);
     
     try {
-      const formId = import.meta.env.VITE_FORMSPREE_ID;
+      // Use environment variable if available, otherwise fallback to the hardcoded ID for deployment
+      const formId = import.meta.env.VITE_FORMSPREE_ID || "xgoqwlkz";
       
       if (!formId || formId === "YOUR_FORMSPREE_ID") {
         setStatus({ 
           submitting: false, 
           succeeded: false, 
-          error: "Form not configured. Please add your VITE_FORMSPREE_ID to the .env file." 
+          error: "Form not configured. Please add your VITE_FORMSPREE_ID." 
         });
         return;
       }
