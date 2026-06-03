@@ -35,6 +35,5 @@ A sleek, responsive, and performance-oriented developer portfolio built with **R
 - src/assets/: Static assets and images.  
 - public/: Public assets like icons and favicons.  
 **📝 License**  
-This project is open-source and available under the [MIT License.](LICENSE "LICENSE")  
-![](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnEAAAACCAYAAAA3pIp+AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAANElEQVR4nO3OUQmAABBAsSdYxKbXxlpGEAOIFfwTYUuwZWa2ag8AgL841uquzq8nAAC8dj05VAYO3phhoQAAAABJRU5ErkJggg==)  
+This project is open-source (data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnEAAAACCAYAAAA3pIp+AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAANElEQVR4nO3OUQmAABBAsSdYxKbXxlpGEAOIFfwTYUuwZWa2ag8AgL841uquzq8nAAC8dj05VAYO3phhoQAAAABJRU5ErkJggg==)  
 Built with passion by [Aadarsh Jha](https://github.com/sudo-aadarsh "https://github.com/sudo-aadarsh")  
