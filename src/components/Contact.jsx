@@ -124,8 +124,8 @@ const Contact = () => {
               <div className="flex justify-center lg:justify-start gap-4">
                 {[
                   { icon: <FaGithub size={20} />, link: 'https://github.com/sudo-aadarsh' },
-                  { icon: <FaLinkedinIn size={20} />, link: '#' },
-                  { icon: <FaInstagram size={20} />, link: '#' },
+                  { icon: <FaLinkedinIn size={20} />, link: 'https://www.linkedin.com/in/aadarsh-jha-b87a6b26b/' },
+                  { icon: <FaInstagram size={20} />, link: 'https://www.instagram.com/im_adars_h/' },
                 ].map((social, i) => (
                   <motion.a 
                     key={i} 
