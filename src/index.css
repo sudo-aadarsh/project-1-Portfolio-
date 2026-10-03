@@ -39,6 +39,7 @@ body {
   --color-dark-bg: #020617;
   --color-dark-card: rgba(255, 255, 255, 0.05); /* Exact Reference Glassmorphism */
   --color-border-cyan: rgba(0, 240, 255, 0.3);
+  --breakpoint-xs: 400px;
 }
 
 /* Custom scrollbar */

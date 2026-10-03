@@ -3,44 +3,182 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaCode } from 'react-icons/fa';
 
 const PROJECT_CONFIG = {
-  'safetrailversion2': { id: '1551632811-561732d1e306', title: 'SafeTrail v2', description: 'Smart Tourist Safety Monitoring System' },
-  'safetrail': { id: '1551632811-561732d1e306', title: 'SafeTrail', description: 'Smart Tourist Safety Monitoring System' },
-  'dropsh': { id: '1563986768609-322da13575f3', title: 'Drop Sh', description: 'Instant peer-to-peer file sharing web application' },
-  'netwatch': { id: '1451187580459-43490279c0fa', title: 'NetWatch', description: 'Real-Time Internet Traffic Visualizer on a 3D globe' },
-  'recall': { id: '1618005182384-a83a8bd57fbe', title: 'Recall AI', description: 'The AI-Native Knowledge Base & Second Brain' },
-  'project1portfolio': { id: '1507238691740-187a5b1d37b8', title: 'Developer Portfolio', description: 'Modern, high-performance developer portfolio' },
-  'demo': { id: '1555066931-4365d14bab8c', title: 'Interactive Demo', description: 'Interactive tech playground and code sandbox' },
-  'slacksimulatoragent': { id: '1635070041078-e363dbe005cb', title: 'Slack Simulink Agent', description: 'Visual physics & system simulation directly in Slack' },
-  'ytautomation': { id: '1611162617213-7d7a39e9b1d7', title: 'YouTube Automation', description: 'Workflow automation suite for YouTube channels' },
-  'ytautomation2': { id: '1611162617213-7d7a39e9b1d7', title: 'YouTube Automation v2', description: 'Enhanced YouTube video automation pipeline' },
-  'linkedinautomation': { id: '1611944212129-29977ae1398c', title: 'LinkedIn Automation', description: 'Personal assistant automation for LinkedIn' },
-  'researchcollabhub': { id: '1532094349884-543bc11b234d', title: 'Research Collab Hub', description: 'Collaborative research paper management with Groq AI' },
-  'somethingforyou': { id: '1549465220-1a8b9238cd48', title: 'Something For You', description: 'Interactive surprise celebration web experience' },
-  'websecure': { id: '1550751827-4bd374c3f58b', title: 'WebSecure Scanner', description: 'Enterprise-grade DAST web vulnerability scanner' },
-  'webfort': { id: '1550751827-4bd374c3f58b', title: 'WebFort', description: 'Enterprise-grade web vulnerability scanner' },
-  'studentsafety': { id: '1523240795612-9a054b0db644', title: 'Campus Safety', description: 'Campus student safety and incident reporting platform' },
-  'moviehub': { id: '1574375927938-d5a98e8ffe85', title: 'MovieHub', description: 'Full-stack cinematic Netflix-style movie streaming platform' },
-  'examseat': { id: '1434030216411-0b793f4b4173', title: 'ExamSeat', description: 'Intelligent seating arrangement system for examinations' },
-  'agrichain': { id: '1508921234172-b68ed335b3e6', title: 'AgriChain', description: 'Blockchain produce tracking on Polygon with fraud detection' },
-  'codedna': { id: '1530497610245-94d3c16cda28', title: 'Code DNA', description: 'Genetic programming & symbolic regression evolutionary engine' },
-  'dineview': { id: '1517248135467-4c7edcad34c4', title: 'DineView AR', description: 'QR-based restaurant ordering web app with AR menu viewing' },
-  'firstcontributions': { id: '1522071820081-009f0129c71c', title: 'First Contributions', description: 'Open source mentorship and contributor gateway' },
-  'pullshark': { id: '1522071820081-009f0129c71c', title: 'Pull Shark', description: 'GitHub achievements and automation tools' }
+  'safetrailversion2': { 
+    id: '1508739773434-c26b3d09e071', 
+    title: 'SafeTrail v2', 
+    category: 'Safety & IoT',
+    priority: 1,
+    description: 'Smart Tourist Safety Monitoring System with real-time geofencing and automated distress alerts.' 
+  },
+  'safetrail': { 
+    id: '1508739773434-c26b3d09e071', 
+    title: 'SafeTrail', 
+    category: 'Safety & IoT',
+    priority: 1,
+    description: 'Smart Tourist Safety Monitoring System with GPS tracking and alert mechanisms.' 
+  },
+  'netwatch': { 
+    id: '1451187580459-43490279c0fa', 
+    title: 'NetWatch', 
+    category: 'Networking & 3D',
+    priority: 2,
+    description: 'Real-time BGP internet traffic visualizer on a Three.js 3D globe with latency anomaly detection.' 
+  },
+  'recall': { 
+    id: '1620712943543-bcc4688e7485', 
+    title: 'Recall AI', 
+    category: 'AI & Knowledge',
+    priority: 3,
+    description: 'AI-first note-taking and knowledge engine that connects thoughts using neural embeddings.' 
+  },
+  'dropsh': { 
+    id: '1558494949-ef010cbdcc31', 
+    title: 'Drop Sh', 
+    category: 'Cloud & Sharing',
+    priority: 4,
+    description: 'Instant, encrypted peer-to-peer file sharing web application with zero friction.' 
+  },
+  'moviehub': { 
+    id: '1574375927938-d5a98e8ffe85', 
+    title: 'MovieHub', 
+    category: 'Full Stack & Media',
+    priority: 5,
+    description: 'Cinematic Netflix-style movie streaming platform with TMDB metadata sync and multi-source streaming.' 
+  },
+  'websecure': { 
+    id: '1550751827-4bd374c3f58b', 
+    title: 'WebSecure Scanner', 
+    category: 'Cybersecurity',
+    priority: 6,
+    description: 'Cloud-native DAST SaaS platform automating vulnerability discovery and AI false-positive filtering.' 
+  },
+  'project1portfolio': { 
+    id: '1555066931-4365d14bab8c', 
+    title: 'Developer Portfolio', 
+    category: 'Frontend & UI/UX',
+    priority: 7,
+    description: 'Sleek, reactive developer portfolio built with React 19, Vite, Tailwind CSS, and Framer Motion.' 
+  },
+  'agrichain': { 
+    id: '1625246333195-78d9c38ad449', 
+    title: 'AgriChain', 
+    category: 'Web3 & Blockchain',
+    priority: 8,
+    description: 'Track agricultural produce from farm to consumer on Polygon blockchain with anti-fraud verification.' 
+  },
+  'codedna': { 
+    id: '1530497610245-94d3c16cda28', 
+    title: 'Code DNA', 
+    category: 'Algorithms & AI',
+    priority: 9,
+    description: 'Genetic programming evolutionary engine producing symbolic regression programs through natural selection.' 
+  },
+  'slacksimulatoragent': { 
+    id: '1635070041078-e363dbe005cb', 
+    title: 'Slack Simulink Agent', 
+    category: 'Simulation & Bots',
+    priority: 10,
+    description: 'Interactive Slack bot rendering real-time physics simulations and differential equation visualizations.' 
+  },
+  'researchcollabhub': { 
+    id: '1532094349884-543bc11b234d', 
+    title: 'Research Collab Hub', 
+    category: 'AI & Research',
+    priority: 11,
+    description: 'Collaborative research paper and resource workspace powered by Groq-accelerated AI models.' 
+  },
+  'dineview': { 
+    id: '1517248135467-4c7edcad34c4', 
+    title: 'DineView AR', 
+    category: 'Augmented Reality',
+    priority: 12,
+    description: 'Contactless QR restaurant ordering web application featuring interactive 3D AR menu previews.' 
+  },
+  'examseat': { 
+    id: '1434030216411-0b793f4b4173', 
+    title: 'ExamSeat', 
+    category: 'Systems & EdTech',
+    priority: 13,
+    description: 'Automated algorithm allocating conflict-free exam hall seating arrangements for academic institutions.' 
+  },
+  'ytautomation': { 
+    id: '1611162617213-7d7a39e9b1d7', 
+    title: 'YouTube Automation', 
+    category: 'Automation & Media',
+    priority: 14,
+    description: 'High-throughput automated video publishing and scheduling pipeline for YouTube channels.' 
+  },
+  'ytautomation2': { 
+    id: '1611162617213-7d7a39e9b1d7', 
+    title: 'YouTube Automation v2', 
+    category: 'Automation & Media',
+    priority: 15,
+    description: 'Enhanced video pipeline featuring automated thumbnail generation and telemetry analytics.' 
+  },
+  'linkedinautomation': { 
+    id: '1611944212129-29977ae1398c', 
+    title: 'LinkedIn Automation', 
+    category: 'Automation & Python',
+    priority: 16,
+    description: 'Automated posting assistant and document publisher using Playwright headless browser control.' 
+  },
+  'somethingforyou': { 
+    id: '1549465220-1a8b9238cd48', 
+    title: 'Something For You', 
+    category: 'Interactive Web',
+    priority: 17,
+    description: 'Personalized interactive celebration and surprise experience crafted with animations.' 
+  },
+  'studentsafety': { 
+    id: '1523240795612-9a054b0db644', 
+    title: 'Campus Safety', 
+    category: 'Safety Systems',
+    priority: 18,
+    description: 'Campus emergency broadcast and real-time student incident reporting system.' 
+  },
+  'webfort': { 
+    id: '1550751827-4bd374c3f58b', 
+    title: 'WebFort', 
+    category: 'Cybersecurity',
+    priority: 19,
+    description: 'Enterprise-grade web vulnerability scanner with automated reporting.' 
+  },
+  'firstcontributions': { 
+    id: '1522071820081-009f0129c71c', 
+    title: 'First Contributions', 
+    category: 'Open Source',
+    priority: 20,
+    description: 'Open source mentorship and contributor gateway for emerging developers.' 
+  },
+  'pullshark': { 
+    id: '1522071820081-009f0129c71c', 
+    title: 'Pull Shark', 
+    category: 'Open Source',
+    priority: 21,
+    description: 'GitHub achievements, pull request workflows, and automation tooling.' 
+  },
+  'demo': { 
+    id: '1526374965328-7f61d4dc18c5', 
+    title: 'Tech Sandbox', 
+    category: 'Experimentation',
+    priority: 99,
+    description: 'Rapid prototyping sandbox for experimenting with cutting-edge frontend patterns and libraries.' 
+  }
 };
 
 const getContextualImageId = (name, description = '', language = '') => {
   const text = `${name} ${description} ${language}`.toLowerCase();
-  if (text.includes('ai') || text.includes('bot') || text.includes('intel') || text.includes('agent')) return '1677442136019-21780ecad995';
+  if (text.includes('ai') || text.includes('bot') || text.includes('intel') || text.includes('agent')) return '1620712943543-bcc4688e7485';
   if (text.includes('security') || text.includes('safe') || text.includes('vuln') || text.includes('shield')) return '1550751827-4bd374c3f58b';
-  if (text.includes('trail') || text.includes('tourist') || text.includes('outdoor')) return '1551632811-561732d1e306';
+  if (text.includes('trail') || text.includes('tourist') || text.includes('outdoor')) return '1508739773434-c26b3d09e071';
   if (text.includes('traffic') || text.includes('network') || text.includes('globe') || text.includes('routing')) return '1451187580459-43490279c0fa';
   if (text.includes('video') || text.includes('movie') || text.includes('stream') || text.includes('youtube')) return '1574375927938-d5a98e8ffe85';
-  if (text.includes('chain') || text.includes('crypto') || text.includes('polygon') || text.includes('block')) return '1508921234172-b68ed335b3e6';
-  if (text.includes('share') || text.includes('drop') || text.includes('file')) return '1563986768609-322da13575f3';
-  if (text.includes('portfolio') || text.includes('resume') || text.includes('personal')) return '1507238691740-187a5b1d37b8';
+  if (text.includes('chain') || text.includes('crypto') || text.includes('polygon') || text.includes('block')) return '1625246333195-78d9c38ad449';
+  if (text.includes('share') || text.includes('drop') || text.includes('file')) return '1558494949-ef010cbdcc31';
+  if (text.includes('portfolio') || text.includes('resume') || text.includes('personal')) return '1555066931-4365d14bab8c';
   if (text.includes('restaurant') || text.includes('food') || text.includes('dine')) return '1517248135467-4c7edcad34c4';
   if (text.includes('exam') || text.includes('seat') || text.includes('school') || text.includes('student')) return '1434030216411-0b793f4b4173';
-  return '1555066931-4365d14bab8c';
+  return '1526374965328-7f61d4dc18c5';
 };
 
 const ProjectCard = ({ project, index }) => {
@@ -53,18 +191,30 @@ const ProjectCard = ({ project, index }) => {
       transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
       viewport={{ once: true }}
       whileHover={{ y: -8 }}
-      className="bg-dark-card/40 rounded-2xl overflow-hidden border border-white/5 hover:border-neon-cyan/30 transition-all group flex flex-col h-full shadow-lg"
+      className="bg-dark-card/40 rounded-2xl overflow-hidden border border-white/5 hover:border-neon-cyan/40 transition-all group flex flex-col h-full shadow-lg hover:shadow-[0_12px_32px_rgba(0,240,255,0.12)]"
     >
-      <div className="h-40 overflow-hidden relative bg-dark-bg/80">
+      <div className="h-48 overflow-hidden relative bg-dark-bg/90">
+        {project.category && (
+          <div className="absolute top-3 left-3 z-20 pointer-events-none">
+            <span className="px-2.5 py-1 rounded-md text-[9px] font-black uppercase tracking-wider bg-black/75 backdrop-blur-md text-neon-cyan border border-neon-cyan/30 shadow-lg">
+              {project.category}
+            </span>
+          </div>
+        )}
+
         {project.image && !imageError ? (
-          <img 
-            src={project.image} 
-            alt={project.title} 
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-            onError={() => setImageError(true)}
-          />
+          <>
+            <img 
+              src={project.image} 
+              alt={project.title} 
+              className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out brightness-[0.92] group-hover:brightness-105 contrast-[1.08]"
+              loading="lazy"
+              onError={() => setImageError(true)}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/25 to-transparent pointer-events-none" />
+          </>
         ) : (
-          <div className="w-full h-full flex flex-col items-center justify-center p-4 text-center bg-gradient-to-br from-dark-card to-dark-bg relative overflow-hidden group-hover:scale-110 transition-transform duration-700">
+          <div className="w-full h-full flex flex-col items-center justify-center p-4 text-center bg-gradient-to-br from-dark-card to-dark-bg relative overflow-hidden group-hover:scale-105 transition-transform duration-700">
             <div className="absolute -right-4 -top-4 opacity-[0.05] rotate-12">
                <FaCode size={120} />
             </div>
@@ -78,18 +228,18 @@ const ProjectCard = ({ project, index }) => {
             <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-neon-cyan/30 to-transparent"></div>
           </div>
         )}
-        <div className="absolute inset-0 bg-dark-bg/60 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-4 z-20">
+        <div className="absolute inset-0 bg-dark-bg/65 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-4 z-20 backdrop-blur-[2px]">
           <motion.a 
             whileHover={{ scale: 1.1, y: -2 }}
             whileTap={{ scale: 0.9 }}
-            href={project.github} target="_blank" rel="noopener noreferrer" className="p-2.5 bg-white rounded-full text-black hover:bg-neon-cyan transition-colors"
+            href={project.github} target="_blank" rel="noopener noreferrer" className="p-2.5 bg-white rounded-full text-black hover:bg-neon-cyan transition-colors shadow-lg"
           >
             <FaGithub size={18} />
           </motion.a>
           <motion.a 
             whileHover={{ scale: 1.1, y: -2 }}
             whileTap={{ scale: 0.9 }}
-            href={project.demo} target="_blank" rel="noopener noreferrer" className="p-2.5 bg-white rounded-full text-black hover:bg-neon-cyan transition-colors"
+            href={project.demo} target="_blank" rel="noopener noreferrer" className="p-2.5 bg-white rounded-full text-black hover:bg-neon-cyan transition-colors shadow-lg"
           >
             <FaExternalLinkAlt size={18} />
           </motion.a>
@@ -139,11 +289,13 @@ const Projects = () => {
           const normalizedKey = repo.name.toLowerCase().replace(/[^a-z0-9]/g, '');
           const config = PROJECT_CONFIG[normalizedKey] || PROJECT_CONFIG[repo.name.toLowerCase()] || {};
           const imageId = config.id || getContextualImageId(repo.name, repo.description, repo.language);
-          const imageUrl = `https://images.unsplash.com/photo-${imageId}?auto=format&fit=crop&q=80&w=800`;
+          const imageUrl = `https://images.unsplash.com/photo-${imageId}?auto=format&fit=crop&q=85&w=1200`;
 
           return {
             title: config.title || repo.name.replace(/[-_]+/g, ' ').trim(),
             originalName: repo.name,
+            category: config.category || repo.language || 'Software',
+            priority: config.priority !== undefined ? config.priority : 50,
             description: config.description || repo.description || 'A passionate project built with modern technologies.',
             tags: [repo.language].filter(Boolean),
             github: repo.html_url,
@@ -151,6 +303,8 @@ const Projects = () => {
             image: imageUrl,
           };
         });
+
+        formattedProjects.sort((a, b) => a.priority - b.priority);
 
         setProjects(formattedProjects);
         setLoading(false);

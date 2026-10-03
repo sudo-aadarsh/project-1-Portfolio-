@@ -78,11 +78,12 @@ const About = () => {
           </motion.div>
 
           <motion.div
+            id="services"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid grid-cols-4 gap-4"
+            className="grid grid-cols-4 gap-4 scroll-mt-28"
           >
             {skills.map((skill, index) => (
               <motion.div
