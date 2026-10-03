@@ -1,19 +1,46 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaCode } from 'react-icons/fa';
 
 const PROJECT_CONFIG = {
-  'moviehub': { id: '1485846234645-a62644f84728', title: 'MovieHub' },
-  'drop-sh': { id: '1563986768609-322da13575f3', title: 'Drop Sh' },
-  'research-collab-hub': { id: '1454165833467-12a0d3d4296c', title: 'Research Collab Hub' },
-  'webfort': { id: '1550751827-4bd374c3f58b', title: 'WebFort' },
-  'examseat': { id: '1434031219348-1dfa497323f1', title: 'ExamSeat' },
-  'safetrail': { id: '1464822759023-fed622ff5c3b', title: 'SafeTrail' },
-  'agrichain': { id: '1508921234172-b68ed335b3e6', title: 'AgriChain' },
-  'code_dna': { id: '1614850523296-e8c041df43a9', title: 'Code DNA' },
-  'internet_traffic_visualizer': { id: '1518186239751-dc0d67bb166e', title: 'Traffic Visualizer' },
-  'dineview': { id: '1517248135467-4c7ed9d42c77', title: 'DineView' },
-  'somethingforyou': { id: '1513201099681-44467d01e55e', title: 'SomethingForYou' }
+  'safetrailversion2': { id: '1551632811-561732d1e306', title: 'SafeTrail v2', description: 'Smart Tourist Safety Monitoring System' },
+  'safetrail': { id: '1551632811-561732d1e306', title: 'SafeTrail', description: 'Smart Tourist Safety Monitoring System' },
+  'dropsh': { id: '1563986768609-322da13575f3', title: 'Drop Sh', description: 'Instant peer-to-peer file sharing web application' },
+  'netwatch': { id: '1451187580459-43490279c0fa', title: 'NetWatch', description: 'Real-Time Internet Traffic Visualizer on a 3D globe' },
+  'recall': { id: '1618005182384-a83a8bd57fbe', title: 'Recall AI', description: 'The AI-Native Knowledge Base & Second Brain' },
+  'project1portfolio': { id: '1507238691740-187a5b1d37b8', title: 'Developer Portfolio', description: 'Modern, high-performance developer portfolio' },
+  'demo': { id: '1555066931-4365d14bab8c', title: 'Interactive Demo', description: 'Interactive tech playground and code sandbox' },
+  'slacksimulatoragent': { id: '1635070041078-e363dbe005cb', title: 'Slack Simulink Agent', description: 'Visual physics & system simulation directly in Slack' },
+  'ytautomation': { id: '1611162617213-7d7a39e9b1d7', title: 'YouTube Automation', description: 'Workflow automation suite for YouTube channels' },
+  'ytautomation2': { id: '1611162617213-7d7a39e9b1d7', title: 'YouTube Automation v2', description: 'Enhanced YouTube video automation pipeline' },
+  'linkedinautomation': { id: '1611944212129-29977ae1398c', title: 'LinkedIn Automation', description: 'Personal assistant automation for LinkedIn' },
+  'researchcollabhub': { id: '1532094349884-543bc11b234d', title: 'Research Collab Hub', description: 'Collaborative research paper management with Groq AI' },
+  'somethingforyou': { id: '1549465220-1a8b9238cd48', title: 'Something For You', description: 'Interactive surprise celebration web experience' },
+  'websecure': { id: '1550751827-4bd374c3f58b', title: 'WebSecure Scanner', description: 'Enterprise-grade DAST web vulnerability scanner' },
+  'webfort': { id: '1550751827-4bd374c3f58b', title: 'WebFort', description: 'Enterprise-grade web vulnerability scanner' },
+  'studentsafety': { id: '1523240795612-9a054b0db644', title: 'Campus Safety', description: 'Campus student safety and incident reporting platform' },
+  'moviehub': { id: '1574375927938-d5a98e8ffe85', title: 'MovieHub', description: 'Full-stack cinematic Netflix-style movie streaming platform' },
+  'examseat': { id: '1434030216411-0b793f4b4173', title: 'ExamSeat', description: 'Intelligent seating arrangement system for examinations' },
+  'agrichain': { id: '1508921234172-b68ed335b3e6', title: 'AgriChain', description: 'Blockchain produce tracking on Polygon with fraud detection' },
+  'codedna': { id: '1530497610245-94d3c16cda28', title: 'Code DNA', description: 'Genetic programming & symbolic regression evolutionary engine' },
+  'dineview': { id: '1517248135467-4c7edcad34c4', title: 'DineView AR', description: 'QR-based restaurant ordering web app with AR menu viewing' },
+  'firstcontributions': { id: '1522071820081-009f0129c71c', title: 'First Contributions', description: 'Open source mentorship and contributor gateway' },
+  'pullshark': { id: '1522071820081-009f0129c71c', title: 'Pull Shark', description: 'GitHub achievements and automation tools' }
+};
+
+const getContextualImageId = (name, description = '', language = '') => {
+  const text = `${name} ${description} ${language}`.toLowerCase();
+  if (text.includes('ai') || text.includes('bot') || text.includes('intel') || text.includes('agent')) return '1677442136019-21780ecad995';
+  if (text.includes('security') || text.includes('safe') || text.includes('vuln') || text.includes('shield')) return '1550751827-4bd374c3f58b';
+  if (text.includes('trail') || text.includes('tourist') || text.includes('outdoor')) return '1551632811-561732d1e306';
+  if (text.includes('traffic') || text.includes('network') || text.includes('globe') || text.includes('routing')) return '1451187580459-43490279c0fa';
+  if (text.includes('video') || text.includes('movie') || text.includes('stream') || text.includes('youtube')) return '1574375927938-d5a98e8ffe85';
+  if (text.includes('chain') || text.includes('crypto') || text.includes('polygon') || text.includes('block')) return '1508921234172-b68ed335b3e6';
+  if (text.includes('share') || text.includes('drop') || text.includes('file')) return '1563986768609-322da13575f3';
+  if (text.includes('portfolio') || text.includes('resume') || text.includes('personal')) return '1507238691740-187a5b1d37b8';
+  if (text.includes('restaurant') || text.includes('food') || text.includes('dine')) return '1517248135467-4c7edcad34c4';
+  if (text.includes('exam') || text.includes('seat') || text.includes('school') || text.includes('student')) return '1434030216411-0b793f4b4173';
+  return '1555066931-4365d14bab8c';
 };
 
 const ProjectCard = ({ project, index }) => {
@@ -38,15 +65,17 @@ const ProjectCard = ({ project, index }) => {
           />
         ) : (
           <div className="w-full h-full flex flex-col items-center justify-center p-4 text-center bg-gradient-to-br from-dark-card to-dark-bg relative overflow-hidden group-hover:scale-110 transition-transform duration-700">
-            <div className="absolute -right-4 -top-4 opacity-[0.03] rotate-12">
-               <FaGithub size={120} />
+            <div className="absolute -right-4 -top-4 opacity-[0.05] rotate-12">
+               <FaCode size={120} />
             </div>
             <div className="relative z-10 flex flex-col items-center">
-              <FaGithub size={32} className="text-neon-cyan/50 mb-3" />
-              <h4 className="text-xs font-bold text-white/80 line-clamp-1 px-4">{project.title}</h4>
-              <p className="text-[10px] text-gray-500 line-clamp-1 mt-1">{project.description}</p>
+              <div className="w-10 h-10 rounded-full bg-neon-cyan/10 border border-neon-cyan/20 flex items-center justify-center mb-2">
+                <FaCode size={18} className="text-neon-cyan" />
+              </div>
+              <h4 className="text-xs font-bold text-white/90 line-clamp-1 px-4">{project.title}</h4>
+              <p className="text-[10px] text-gray-400 line-clamp-1 mt-1">{project.description}</p>
             </div>
-            <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-neon-cyan/20 to-transparent"></div>
+            <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-neon-cyan/30 to-transparent"></div>
           </div>
         )}
         <div className="absolute inset-0 bg-dark-bg/60 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-4 z-20">
@@ -107,15 +136,15 @@ const Projects = () => {
         const filteredRepos = data.filter(repo => !repo.fork && repo.name !== 'sudo-aadarsh');
         
         const formattedProjects = filteredRepos.map(repo => {
-          const repoNameLower = repo.name.toLowerCase();
-          const config = PROJECT_CONFIG[repoNameLower] || {};
-          const imageId = config.id;
-          const imageUrl = imageId ? `https://images.unsplash.com/photo-${imageId}?auto=format&fit=crop&q=80&w=800` : null;
+          const normalizedKey = repo.name.toLowerCase().replace(/[^a-z0-9]/g, '');
+          const config = PROJECT_CONFIG[normalizedKey] || PROJECT_CONFIG[repo.name.toLowerCase()] || {};
+          const imageId = config.id || getContextualImageId(repo.name, repo.description, repo.language);
+          const imageUrl = `https://images.unsplash.com/photo-${imageId}?auto=format&fit=crop&q=80&w=800`;
 
           return {
-            title: config.title || repo.name.replace(/-/g, ' ').replace(/_/g, ' '),
+            title: config.title || repo.name.replace(/[-_]+/g, ' ').trim(),
             originalName: repo.name,
-            description: repo.description || 'A passionate project built with modern technologies.',
+            description: config.description || repo.description || 'A passionate project built with modern technologies.',
             tags: [repo.language].filter(Boolean),
             github: repo.html_url,
             demo: repo.homepage || repo.html_url,

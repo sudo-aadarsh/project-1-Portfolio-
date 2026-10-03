@@ -60,13 +60,17 @@ const Hero = () => {
             >
               VIEW MY WORK
             </motion.button>
-            <motion.button 
+            <motion.a 
+              href="/My_Resume.pdf"
+              download="My_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.15)" }}
               whileTap={{ scale: 0.98 }}
-              className="px-6 py-3 rounded-xl border border-white/20 bg-white/5 backdrop-blur-md text-white transition-all text-xs font-bold shadow-lg"
+              className="px-6 py-3 rounded-xl border border-white/20 bg-white/5 backdrop-blur-md text-white transition-all text-xs font-bold shadow-lg inline-flex items-center justify-center cursor-pointer"
             >
-              DOWNLOAD CV
-            </motion.button>
+              DOWNLOAD RESUME
+            </motion.a>
           </motion.div>
         </motion.div>
 
