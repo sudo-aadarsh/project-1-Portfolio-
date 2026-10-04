@@ -40,6 +40,11 @@ body {
   --color-dark-card: rgba(255, 255, 255, 0.05); /* Exact Reference Glassmorphism */
   --color-border-cyan: rgba(0, 240, 255, 0.3);
   --breakpoint-xs: 400px;
+  --font-cursive: 'Caveat', 'Dancing Script', cursive;
+}
+
+.font-cursive {
+  font-family: 'Caveat', 'Dancing Script', cursive;
 }
 
 /* Custom scrollbar */

@@ -53,12 +53,17 @@ const About = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <p className="text-base md:text-lg text-slate-400 leading-relaxed mb-8 text-justify">
-              I'm <span className="text-white font-bold">Aadarsh Jha</span>, a dedicated developer with a sharp focus on modern web architectures. My journey is fueled by a passion for solving complex problems through elegant code and robust system design.
-            </p>
-            <p className="text-base md:text-lg text-slate-400 leading-relaxed mb-10 text-justify">
-              I believe in building applications that are not just functional, but also provide a seamless and high-performance user experience.
-            </p>
+            <div className="space-y-4 mb-10 text-left">
+              <p className="font-cursive text-2xl md:text-3xl text-slate-100 leading-relaxed tracking-wide">
+                I'm <span className="text-neon-cyan font-bold text-3xl md:text-4xl">Aadarsh Jha</span>, a developer passionate about crafting intelligent web experiences and scalable system design.
+              </p>
+              <p className="font-cursive text-xl md:text-2xl text-slate-300 leading-relaxed tracking-wide">
+                Learning new things every single day — constantly diving into autonomous AI systems, modern web frameworks, and pushing the boundaries of what code can do.
+              </p>
+              <p className="font-cursive text-xl md:text-2xl text-slate-400 leading-relaxed tracking-wide">
+                When I'm not shipping features, I'm experimenting with futuristic UI concepts, exploring open-source tools, and turning creative sparks into working software.
+              </p>
+            </div>
 
             <div className="grid grid-cols-2 gap-6">
               {[
