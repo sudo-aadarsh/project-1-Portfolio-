@@ -2,12 +2,12 @@ import React, { useEffect, useState, useRef } from 'react';
 
 const BOOT_LINES = [
   { text: 'INITIALIZING NEURAL INTERFACE...', delay: 0 },
-  { text: 'LOADING CORE MODULES............[OK]', delay: 300 },
-  { text: 'ESTABLISHING SECURE LINK........[OK]', delay: 600 },
-  { text: 'DECRYPTING DATA STREAMS..........[OK]', delay: 900 },
-  { text: 'SYNCING QUANTUM GRID.............[OK]', delay: 1200 },
-  { text: 'BYPASSING FIREWALL...............[OK]', delay: 1500 },
-  { text: 'WELCOME TO THE GRID // USER: AADARSH', delay: 1900 },
+  { text: 'LOADING CORE MODULES............[OK]', delay: 100 },
+  { text: 'ESTABLISHING SECURE LINK........[OK]', delay: 200 },
+  { text: 'DECRYPTING DATA STREAMS..........[OK]', delay: 300 },
+  { text: 'SYNCING QUANTUM GRID.............[OK]', delay: 400 },
+  { text: 'BYPASSING FIREWALL...............[OK]', delay: 500 },
+  { text: 'WELCOME TO THE GRID // USER: AADARSH', delay: 700 },
 ];
 
 const GLITCH_CHARS = '!@#$%^&*<>?/\\|{}[]~ABCDEFGHIJKLMNabcdefghijk01011010';
@@ -84,7 +84,7 @@ export default function LoadingScreen({ onComplete }) {
     const timers = BOOT_LINES.map(({ text, delay }) =>
       setTimeout(() => {
         setVisibleLines(prev => [...prev, text]);
-      }, delay + 400)
+      }, delay + 100)
     );
     return () => timers.forEach(clearTimeout);
   }, []);
@@ -97,7 +97,7 @@ export default function LoadingScreen({ onComplete }) {
           clearInterval(interval);
           return 100;
         }
-        return p + 0.8;
+        return p + 2.5;
       });
     }, 25);
     return () => clearInterval(interval);
@@ -144,8 +144,8 @@ export default function LoadingScreen({ onComplete }) {
     if (progress >= 100) {
       const t = setTimeout(() => {
         setExiting(true);
-        setTimeout(onComplete, 900);
-      }, 600);
+        setTimeout(onComplete, 500);
+      }, 300);
       return () => clearTimeout(t);
     }
   }, [progress, onComplete]);

@@ -11,10 +11,10 @@ const PROJECT_CONFIG = {
     description: 'Smart Tourist Safety Monitoring System with real-time geofencing and automated distress alerts.' 
   },
   'safetrail': { 
-    id: '1508739773434-c26b3d09e071', 
+    id: '1465146344425-f00d5f5c8f07', 
     title: 'SafeTrail', 
     category: 'Safety & IoT',
-    priority: 1,
+    priority: 1.5,
     description: 'Smart Tourist Safety Monitoring System with GPS tracking and alert mechanisms.' 
   },
   'netwatch': { 

@@ -6,9 +6,9 @@ const About = () => {
     { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
     { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
     { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-    { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
+    { name: 'DBMS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
     { name: 'C', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg' },
-    { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
+    { name: 'Operating System', icon: '/operating-system.svg' },
     { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
     { name: 'Linux', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg' },
   ];
@@ -55,19 +55,19 @@ const About = () => {
           >
             <div className="space-y-4 mb-10 text-left">
               <p className="font-cursive text-2xl md:text-3xl text-slate-100 leading-relaxed tracking-wide">
-                I'm <span className="text-neon-cyan font-bold text-3xl md:text-4xl">Aadarsh Jha</span>, a developer passionate about crafting intelligent web experiences and scalable system design.
+                I'm <span className="text-neon-cyan font-bold text-3xl md:text-4xl">Aadarsh Jha</span>, a developer passionate about crafting intelligent web experiences, robust architectures, and low-level systems.
               </p>
               <p className="font-cursive text-xl md:text-2xl text-slate-300 leading-relaxed tracking-wide">
-                Learning new things every single day — constantly diving into autonomous AI systems, modern web frameworks, and pushing the boundaries of what code can do.
+                Deeply fascinated by operating systems and the Linux ecosystem — I love trying different OS architectures, distro hopping, and exploring system internals to see how kernels and environments tick. I use Arch btw.
               </p>
               <p className="font-cursive text-xl md:text-2xl text-slate-400 leading-relaxed tracking-wide">
-                When I'm not shipping features, I'm experimenting with futuristic UI concepts, exploring open-source tools, and turning creative sparks into working software.
+                When I'm not shipping features or experimenting with different Linux distros, I'm building modern web tools, diving into open-source, and turning creative ideas into reality.
               </p>
             </div>
 
             <div className="grid grid-cols-2 gap-6">
               {[
-                { count: '20+', label: 'Projects Done' },
+                { count: '25+', label: 'Projects Done' },
                 { count: '2+', label: 'Years Exp.' },
               ].map((stat, i) => (
                 <motion.div

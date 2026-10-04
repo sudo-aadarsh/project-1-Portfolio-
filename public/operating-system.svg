@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="os-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f0ff"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="os-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1728"/>
+      <stop offset="100%" stop-color="#020817"/>
+    </linearGradient>
+  </defs>
+  <!-- Window / OS Frame -->
+  <rect x="10" y="16" width="108" height="96" rx="18" fill="url(#os-bg)" stroke="url(#os-grad)" stroke-width="5"/>
+  <!-- Header Bar -->
+  <line x1="10" y1="44" x2="118" y2="44" stroke="#1e293b" stroke-width="3"/>
+  <circle cx="28" cy="30" r="5" fill="#ef4444"/>
+  <circle cx="44" cy="30" r="5" fill="#f59e0b"/>
+  <circle cx="60" cy="30" r="5" fill="#10b981"/>
+  <!-- Terminal Prompt & Kernel symbol -->
+  <path d="M30 64 L48 76 L30 88" fill="none" stroke="url(#os-grad)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="58" y1="88" x2="88" y2="88" stroke="#00f0ff" stroke-width="6" stroke-linecap="round"/>
+</svg>
