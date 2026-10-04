@@ -1,16 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 
-/* ── Syntax Highlighting Tokens ────────────────────────────── */
+/* ── Syntax Highlighting Tokens (Vibrant & Legible) ─────────── */
 const TOKEN = {
-  keyword:  '#c792ea', // purple
-  type:     '#82aaff', // blue
-  string:   '#c3e88d', // green
-  number:   '#f78c6c', // orange
-  comment:  '#546e7a', // grey
-  cyan:     '#00f0ff', // neon
-  white:    '#cbd5e1', // slate-300
-  operator: '#89ddff',
+  keyword:  '#d8b4fe', // vibrant lavender/purple
+  type:     '#93c5fd', // bright sky blue
+  string:   '#86efac', // luminous neon mint
+  number:   '#fdba74', // warm radiant amber
+  comment:  '#7dd3fc', // bright legible cyan-sky
+  cyan:     '#00f0ff', // signature neon cyan
+  white:    '#f8fafc', // crisp white
+  operator: '#a5f3fc',
 };
 
 const SNIPPETS = [
@@ -91,32 +91,32 @@ function SquareSnippetCard({ snippet, delay }) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] }}
       viewport={{ once: true }}
-      className="w-full max-w-[340px] sm:max-w-[350px] aspect-square mx-auto flex flex-col"
+      className="w-full max-w-[310px] xs:max-w-[325px] sm:max-w-[340px] md:max-w-[350px] aspect-square mx-auto flex flex-col"
     >
       <div
-        className="w-full h-full rounded-2xl border border-neon-cyan/20 bg-slate-950/80 backdrop-blur-xl flex flex-col overflow-hidden shadow-[0_0_25px_rgba(0,240,255,0.06)] hover:border-neon-cyan/45 hover:shadow-[0_0_30px_rgba(0,240,255,0.14)] transition-all duration-500 relative group"
+        className="w-full h-full rounded-2xl border border-neon-cyan/35 bg-gradient-to-b from-[#0f2847]/75 via-[#0a1e36]/80 to-[#061426]/85 backdrop-blur-xl flex flex-col overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.4),0_0_25px_rgba(0,240,255,0.12)] hover:border-neon-cyan/60 hover:shadow-[0_0_35px_rgba(0,240,255,0.22)] transition-all duration-500 relative group"
       >
         {/* Subtle Cyber Corner Accents */}
-        <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-neon-cyan/40 pointer-events-none rounded-tl-2xl"></div>
-        <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-neon-cyan/40 pointer-events-none rounded-tr-2xl"></div>
-        <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-neon-cyan/40 pointer-events-none rounded-bl-2xl"></div>
-        <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-neon-cyan/40 pointer-events-none rounded-br-2xl"></div>
+        <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-neon-cyan/50 pointer-events-none rounded-tl-2xl"></div>
+        <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-neon-cyan/50 pointer-events-none rounded-tr-2xl"></div>
+        <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-neon-cyan/50 pointer-events-none rounded-bl-2xl"></div>
+        <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-neon-cyan/50 pointer-events-none rounded-br-2xl"></div>
 
         {/* Header Bar */}
         <div
-          className="flex items-center justify-between px-3.5 py-2.5 border-b border-white/5 bg-white/[0.02]"
+          className="flex items-center justify-between px-3.5 py-2.5 border-b border-neon-cyan/20 bg-white/[0.05]"
         >
           <div className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block" />
-            <span className="w-2.5 h-2.5 rounded-full bg-amber-400/80 inline-block" />
-            <span className="w-2.5 h-2.5 rounded-full bg-neon-cyan/80 inline-block" />
-            <span className="ml-2 font-mono text-[11px] text-slate-400 font-medium tracking-tight">
+            <span className="w-2.5 h-2.5 rounded-full bg-red-400 inline-block shadow-[0_0_6px_rgba(248,113,113,0.5)]" />
+            <span className="w-2.5 h-2.5 rounded-full bg-amber-300 inline-block shadow-[0_0_6px_rgba(252,211,77,0.5)]" />
+            <span className="w-2.5 h-2.5 rounded-full bg-neon-cyan inline-block shadow-[0_0_6px_rgba(0,240,255,0.7)]" />
+            <span className="ml-2 font-mono text-[11px] text-neon-cyan/85 font-medium tracking-tight">
               {snippet.filename}
             </span>
           </div>
 
           <span
-            className="font-mono text-[9px] px-2 py-0.5 rounded-md bg-neon-cyan/10 border border-neon-cyan/20 text-neon-cyan font-semibold tracking-wider uppercase"
+            className="font-mono text-[9px] px-2 py-0.5 rounded-md bg-neon-cyan/15 border border-neon-cyan/30 text-neon-cyan font-semibold tracking-wider uppercase shadow-[0_0_8px_rgba(0,240,255,0.2)]"
           >
             {snippet.lang}
           </span>
@@ -126,7 +126,7 @@ function SquareSnippetCard({ snippet, delay }) {
         <div className="flex-1 p-3.5 sm:p-4 flex items-center overflow-hidden">
           <div className="w-full flex gap-3 font-mono text-[11px] sm:text-[12px]">
             {/* Line Numbers */}
-            <div className="flex flex-col text-slate-600 select-none text-right min-w-[16px] space-y-1.5">
+            <div className="flex flex-col text-slate-400/75 font-mono select-none text-right min-w-[16px] space-y-1.5">
               {snippet.lines.map((_, i) => (
                 <div key={i} className="leading-tight">{i + 1}</div>
               ))}
@@ -148,7 +148,7 @@ function SquareSnippetCard({ snippet, delay }) {
 
               {/* Blinking cursor */}
               {visibleCount < snippet.lines.length && (
-                <span className="inline-block w-1.5 h-3 bg-neon-cyan animate-pulse shadow-[0_0_6px_#00f0ff]" />
+                <span className="inline-block w-1.5 h-3 bg-neon-cyan animate-pulse shadow-[0_0_8px_#00f0ff]" />
               )}
             </div>
           </div>
@@ -161,7 +161,7 @@ function SquareSnippetCard({ snippet, delay }) {
 export default function CodeSnippets() {
   return (
     <section className="py-2 md:py-4">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+      <div className="max-w-4xl mx-auto px-0 sm:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 justify-items-center items-center">
           <SquareSnippetCard snippet={SNIPPETS[0]} delay={0.1} />
           <SquareSnippetCard snippet={SNIPPETS[1]} delay={0.25} />

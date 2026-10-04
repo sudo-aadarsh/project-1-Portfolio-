@@ -48,7 +48,7 @@ const Navbar = () => {
 
   return (
     <header className="fixed top-3 left-0 right-0 md:top-6 md:left-1/2 md:right-auto md:-translate-x-1/2 z-[100] px-4 md:px-0 w-full md:w-auto flex justify-center pointer-events-auto">
-      <nav className="w-full max-w-[330px] xs:max-w-[350px] sm:max-w-md md:max-w-none md:w-max flex flex-nowrap items-center gap-0.5 sm:gap-1.5 md:gap-2 p-1 sm:p-1.5 md:p-2 rounded-full border border-white/15 bg-black/25 md:bg-black/30 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.25)] justify-between md:justify-center">
+      <nav className="w-full max-w-[310px] xs:max-w-[325px] sm:max-w-[340px] md:max-w-none md:w-max flex flex-nowrap items-center gap-1 md:gap-2 px-1.5 py-2 sm:px-2 sm:py-2.5 md:px-2 md:py-2 rounded-full border border-white/15 bg-black/25 md:bg-black/30 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.25)] justify-between md:justify-center">
         {NAV_ITEMS.map((item) => {
           const Icon     = item.icon;
           const isActive = activeTab === item.id;
@@ -58,7 +58,7 @@ const Navbar = () => {
               key={item.id}
               href={item.href}
               onClick={(e) => handleNavClick(e, item)}
-              className={`relative flex-1 md:flex-initial flex items-center justify-center gap-1.5 sm:gap-2 md:gap-2.5 px-2 sm:px-4 md:px-6 py-2 md:py-2.5 rounded-full text-xs sm:text-[13px] md:text-[14px] font-medium md:font-semibold select-none whitespace-nowrap transition-colors ${
+              className={`relative flex-1 md:flex-initial flex items-center justify-center gap-1.5 sm:gap-2 md:gap-2.5 px-2 sm:px-4 md:px-6 py-2.5 sm:py-3 md:py-2.5 rounded-full text-xs sm:text-[13px] md:text-[14px] font-medium md:font-semibold select-none whitespace-nowrap transition-colors ${
                 isActive ? 'text-black' : 'text-slate-300 hover:text-white'
               }`}
             >
