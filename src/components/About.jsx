@@ -53,10 +53,10 @@ const About = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <p className="text-base md:text-lg text-slate-400 leading-relaxed mb-8">
+            <p className="text-base md:text-lg text-slate-400 leading-relaxed mb-8 text-justify">
               I'm <span className="text-white font-bold">Aadarsh Jha</span>, a dedicated developer with a sharp focus on modern web architectures. My journey is fueled by a passion for solving complex problems through elegant code and robust system design.
             </p>
-            <p className="text-base md:text-lg text-slate-400 leading-relaxed mb-10">
+            <p className="text-base md:text-lg text-slate-400 leading-relaxed mb-10 text-justify">
               I believe in building applications that are not just functional, but also provide a seamless and high-performance user experience.
             </p>
 
