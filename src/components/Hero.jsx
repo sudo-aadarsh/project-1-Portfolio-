@@ -140,7 +140,7 @@ const Hero = () => {
             
             <div className="relative z-10 w-full h-full rounded-[30px] md:rounded-[40px] border border-white/10 overflow-hidden shadow-xl bg-dark-card/30 backdrop-blur-md">
               <img 
-                src="https://github.com/sudo-aadarsh.png" 
+                src="/profile.jpg" 
                 alt="Aadarsh Jha" 
                 className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 grayscale-[10%] group-hover:grayscale-0"
               />
