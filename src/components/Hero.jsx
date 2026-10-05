@@ -98,26 +98,38 @@ const Hero = () => {
             I craft high-performance, visually stunning web experiences. Focused on system design and modern frontend architectures.
           </motion.p>
           
-          <motion.div variants={itemVariants} className="flex flex-row gap-3 justify-center md:justify-start w-full">
+          <motion.div variants={itemVariants} className="flex flex-row flex-wrap gap-3 justify-center md:justify-start w-full">
             <motion.button 
               whileHover={{ scale: 1.05, y: -2, backgroundColor: "rgba(0, 240, 255, 0.9)" }}
               whileTap={{ scale: 0.98 }}
               onClick={scrollToProjects}
-              className="flex-1 md:flex-none px-6 py-3 rounded-xl bg-neon-cyan/80 backdrop-blur-md text-black transition-all duration-300 text-xs font-black shadow-[0_0_20px_rgba(0,240,255,0.2)] border border-white/10"
+              className="px-6 py-3 rounded-xl bg-neon-cyan/80 backdrop-blur-md text-black transition-all duration-300 text-xs font-black shadow-[0_0_20px_rgba(0,240,255,0.2)] border border-white/10"
             >
               VIEW MY WORK
             </motion.button>
-            <motion.a 
-              href="/My_Resume.pdf"
-              download="My_Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.15)" }}
-              whileTap={{ scale: 0.98 }}
-              className="flex-1 md:flex-none px-6 py-3 rounded-xl border border-white/20 bg-white/5 backdrop-blur-md text-white transition-all text-xs font-bold shadow-lg inline-flex items-center justify-center cursor-pointer"
+            
+            <motion.div 
+              whileHover={{ scale: 1.05, y: -2, backgroundColor: "rgba(255,255,255,0.1)" }}
+              className="flex rounded-xl border border-white/20 bg-white/5 backdrop-blur-md text-white transition-all shadow-lg overflow-hidden"
             >
-              DOWNLOAD RESUME
-            </motion.a>
+              <a 
+                href="/My_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-5 py-3 text-xs font-bold hover:bg-white/10 transition-colors flex items-center justify-center"
+              >
+                VIEW RESUME
+              </a>
+              <div className="w-[1px] bg-white/20 my-2"></div>
+              <a 
+                href="/My_Resume.pdf"
+                download="My_Resume.pdf"
+                title="Download PDF"
+                className="px-4 py-3 text-xs font-bold hover:bg-white/10 transition-colors flex items-center justify-center"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+              </a>
+            </motion.div>
           </motion.div>
 
           {/* ── Social Links ───────────────────────────────── */}
