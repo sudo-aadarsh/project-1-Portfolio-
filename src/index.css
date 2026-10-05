@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  font-family: 'Geist', 'Inter', system-ui, sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
   line-height: 1.6;
   font-weight: 400;
 
@@ -41,6 +41,8 @@ body {
   --color-border-cyan: rgba(0, 240, 255, 0.3);
   --breakpoint-xs: 400px;
   --font-cursive: 'Caveat', 'Dancing Script', cursive;
+  --font-sans: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
 
 .font-cursive {

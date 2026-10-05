@@ -1,7 +1,42 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const Hero = () => {
+  const [binaryName, setBinaryName] = useState("0110001");
+
+  useEffect(() => {
+    const targetName = "Aadarsh";
+    let iteration = 0;
+    let interval = null;
+
+    const timeout = setTimeout(() => {
+      interval = setInterval(() => {
+        setBinaryName(
+          targetName
+            .split("")
+            .map((char, index) => {
+              if (index < Math.floor(iteration)) {
+                return char;
+              }
+              return Math.round(Math.random()).toString();
+            })
+            .join("")
+        );
+        
+        if (iteration >= targetName.length) {
+          clearInterval(interval);
+        }
+        
+        iteration += 1 / 3;
+      }, 50);
+    }, 800);
+
+    return () => {
+      clearTimeout(timeout);
+      clearInterval(interval);
+    };
+  }, []);
+
   const scrollToProjects = () => {
     document.getElementById('project')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -45,26 +80,18 @@ const Hero = () => {
             "Avoid or just undertake it"
           </motion.div>
           
-          <motion.h1 variants={itemVariants} className="w-full text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-3 leading-tight">
-            Hi, I'm{' '}
-            <span className="inline-block whitespace-nowrap">
-              {"Aadarsh".split("").map((char, index) => (
-                <motion.span
-                  key={index}
-                  initial={{ opacity: 0, y: 30, rotate: -15, scale: 0.5 }}
-                  animate={{ opacity: 1, y: 0, rotate: 0, scale: 1 }}
-                  transition={{ 
-                    type: "spring", 
-                    stiffness: 150, 
-                    damping: 10,
-                    delay: 0.8 + index * 0.08
-                  }}
-                  className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-white origin-bottom"
-                >
-                  {char}
-                </motion.span>
-              ))}
-            </span>
+          <motion.h1 variants={itemVariants} className="font-cursive w-full text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-3 leading-tight flex flex-wrap items-center">
+            <span className="mr-3">Hi, I'm</span>
+            <motion.span
+              initial={{ opacity: 0, y: 30, scale: 0.8 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ type: "spring", stiffness: 150, damping: 10, delay: 0.8 }}
+              className="inline-block"
+            >
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-white">
+                {binaryName}
+              </span>
+            </motion.span>
           </motion.h1>
           
           <motion.p variants={itemVariants} className="w-full text-xs md:text-sm text-slate-400 mb-7 leading-relaxed">
