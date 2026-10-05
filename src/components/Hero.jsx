@@ -148,7 +148,7 @@ const Hero = () => {
                 ),
               },
               {
-                href: 'https://www.instagram.com/aadarsh.jha_/',
+                href: 'https://www.instagram.com/im_adars_h/',
                 label: 'Instagram',
                 icon: (
                   <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
