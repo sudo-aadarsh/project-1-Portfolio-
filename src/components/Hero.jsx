@@ -26,6 +26,8 @@ const Hero = () => {
     },
   };
 
+
+
   return (
     <section id="home" className="min-h-[85vh] flex items-center justify-center relative overflow-hidden pt-20 pb-12 md:py-12">
       {/* Static Background Glow for Stability */}
@@ -44,7 +46,25 @@ const Hero = () => {
           </motion.div>
           
           <motion.h1 variants={itemVariants} className="w-full text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-3 leading-tight">
-            Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-white">Aadarsh</span>
+            Hi, I'm{' '}
+            <span className="inline-block whitespace-nowrap">
+              {"Aadarsh".split("").map((char, index) => (
+                <motion.span
+                  key={index}
+                  initial={{ opacity: 0, y: 30, rotate: -15, scale: 0.5 }}
+                  animate={{ opacity: 1, y: 0, rotate: 0, scale: 1 }}
+                  transition={{ 
+                    type: "spring", 
+                    stiffness: 150, 
+                    damping: 10,
+                    delay: 0.8 + index * 0.08
+                  }}
+                  className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-white origin-bottom"
+                >
+                  {char}
+                </motion.span>
+              ))}
+            </span>
           </motion.h1>
           
           <motion.p variants={itemVariants} className="w-full text-xs md:text-sm text-slate-400 mb-7 leading-relaxed">
