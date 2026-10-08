@@ -80,7 +80,7 @@ const Hero = () => {
             "Avoid or just undertake it"
           </motion.div>
           
-          <motion.h1 variants={itemVariants} className="font-cursive w-full text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-3 leading-tight flex flex-wrap items-center">
+          <motion.h1 variants={itemVariants} className="font-cursive w-full text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-3 leading-tight flex flex-wrap items-center justify-center md:justify-start">
             <span className="mr-3">Hi, I'm</span>
             <motion.span
               initial={{ opacity: 0, y: 30, scale: 0.8 }}
@@ -88,7 +88,7 @@ const Hero = () => {
               transition={{ type: "spring", stiffness: 150, damping: 10, delay: 0.8 }}
               className="inline-block"
             >
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-white">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-white inline-block rotate-1">
                 {binaryName}
               </span>
             </motion.span>
