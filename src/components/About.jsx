@@ -95,14 +95,15 @@ const About = () => {
                 key={index}
                 variants={itemVariants}
                 whileHover={{ scale: 1.1, rotate: 5 }}
-                className="aspect-square bg-white/5 rounded-2xl border border-white/5 flex flex-col items-center justify-center p-4 group hover:bg-neon-cyan/10 transition-colors"
+                whileTap={{ scale: 1.1, rotate: 5 }}
+                className="aspect-square bg-white/5 rounded-2xl border border-white/5 flex flex-col items-center justify-center p-4 group hover:bg-neon-cyan/10 active:bg-neon-cyan/10 transition-colors"
               >
                 <img 
                   src={skill.icon} 
                   alt={skill.name} 
-                  className="w-10 h-10 md:w-12 md:h-12 object-contain group-hover:brightness-110 transition-all" 
+                  className="w-10 h-10 md:w-12 md:h-12 object-contain group-hover:brightness-110 group-active:brightness-110 transition-all" 
                 />
-                <span className="text-[8px] md:text-[10px] text-gray-500 group-hover:text-neon-cyan mt-2 font-bold uppercase tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity text-center whitespace-nowrap overflow-hidden text-ellipsis w-full">
+                <span className="text-[8px] md:text-[10px] text-gray-500 group-hover:text-neon-cyan group-active:text-neon-cyan mt-2 font-bold uppercase tracking-tighter opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity text-center whitespace-nowrap overflow-hidden text-ellipsis w-full">
                   {skill.name}
                 </span>
               </motion.div>
