@@ -8,7 +8,7 @@ const About = () => {
     { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
     { name: 'DBMS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
     { name: 'C', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg' },
-    { name: 'Operating System', icon: '/operating-system.svg' },
+    { name: 'OS', icon: '/operating-system.svg' },
     { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
     { name: 'Linux', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg' },
   ];
@@ -102,7 +102,7 @@ const About = () => {
                   alt={skill.name} 
                   className="w-10 h-10 md:w-12 md:h-12 object-contain group-hover:brightness-110 transition-all" 
                 />
-                <span className="text-[8px] md:text-[10px] text-gray-500 group-hover:text-neon-cyan mt-2 font-bold uppercase tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity">
+                <span className="text-[8px] md:text-[10px] text-gray-500 group-hover:text-neon-cyan mt-2 font-bold uppercase tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity text-center whitespace-nowrap overflow-hidden text-ellipsis w-full">
                   {skill.name}
                 </span>
               </motion.div>
