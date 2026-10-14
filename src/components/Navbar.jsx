@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { User, IdCard, Folder, Mail } from 'lucide-react';
 
@@ -11,8 +11,8 @@ const NAV_ITEMS = [
 
 const Navbar = () => {
   const [activeTab, setActiveTab] = useState('home');
-  const scrollingRef = React.useRef(false);
-  const scrollTimerRef = React.useRef(null);
+  const scrollingRef = useRef(false);
+  const scrollTimerRef = useRef(null);
 
   useEffect(() => {
     const onScroll = () => {

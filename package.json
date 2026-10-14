@@ -1,8 +1,16 @@
 {
-  "name": "temp-portfolio",
+  "name": "aadarsh-portfolio",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Interactive developer portfolio showcasing projects, skills, and system engineering work built with React 19, Vite, Tailwind CSS, and Framer Motion.",
   "type": "module",
+  "homepage": "https://sudo-aadarsh.netlify.app/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sudo-aadarsh/project-1-Portfolio-.git"
+  },
+  "author": "Aadarsh Jha",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

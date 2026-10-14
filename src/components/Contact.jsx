@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt, FaGithub, FaLinkedinIn, FaInstagram, FaCheckCircle, FaExclamationCircle } from 'react-icons/fa';
+import { FaEnvelope, FaMapMarkerAlt, FaGithub, FaLinkedinIn, FaInstagram, FaCheckCircle, FaExclamationCircle } from 'react-icons/fa';
 
 const Contact = () => {
   const [status, setStatus] = useState({
@@ -48,7 +48,7 @@ const Contact = () => {
           error: data.errors ? data.errors.map(e => e.message).join(', ') : "Something went wrong. Please try again." 
         });
       }
-    } catch (error) {
+    } catch {
       setStatus({ 
         submitting: false, 
         succeeded: false, 

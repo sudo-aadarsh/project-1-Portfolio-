@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 
 const BOOT_LINES = [
   { text: 'INITIALIZING NEURAL INTERFACE...', delay: 0 },
@@ -46,12 +46,13 @@ function RainColumn({ x, delay, speed, chars }) {
 }
 
 function MatrixRain() {
-  const columns = useRef([]);
-  if (columns.current.length === 0) {
+  const [columns] = useState(() => {
+    if (typeof window === 'undefined') return [];
     const count = Math.floor(window.innerWidth / 20);
+    const cols = [];
     for (let i = 0; i < count; i++) {
       const len = 10 + Math.floor(Math.random() * 20);
-      columns.current.push({
+      cols.push({
         x: i * 20,
         delay: Math.random() * 4,
         speed: 3 + Math.random() * 4,
@@ -60,10 +61,12 @@ function MatrixRain() {
         ),
       });
     }
-  }
+    return cols;
+  });
+
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {columns.current.map((col, i) => (
+      {columns.map((col, i) => (
         <RainColumn key={i} {...col} />
       ))}
     </div>
@@ -77,7 +80,6 @@ export default function LoadingScreen({ onComplete }) {
   const [scanLine, setScanLine] = useState(0);
   const [exiting, setExiting] = useState(false);
   const [displayedLines, setDisplayedLines] = useState([]);
-  const glitchRef = useRef(null);
 
   /* Reveal boot lines one by one */
   useEffect(() => {
